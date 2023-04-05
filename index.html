@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window_size</title>
+</head>
+<style>
+    div {
+        width: 400px;
+        height: 200px;
+        background-color: bisque;
+        padding: 20px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+</style>
+
+<body>
+    <div>
+        <p class="window_screen"></p>
+        <p class="window_outer"></p>
+        <p class="window_inner"></p>
+        <p class="documentElement_clientWidth"></p>
+    </div>
+
+    <script>
+        const window_screen = document.querySelector(".window_screen");
+        const window_outer = document.querySelector(".window_outer");
+        const window_inner = document.querySelector(".window_inner");
+        const documentElement_clientWidth = document.querySelector(".documentElement_clientWidth");
+
+        function onHandleResize() {
+            window_screen.innerText = `window.screen: ${window.screen.width}, ${window.screen.height}`;
+            window_outer.innerText = `window.outer: ${window.outerWidth}, ${window.outerHeight}`;
+            window_inner.innerText = `window.inner: ${window.innerWidth}, ${window.innerHeight}`;
+            documentElement_clientWidth.innerText = `documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`
+        }
+
+        window.addEventListener("resize", onHandleResize);
+        onHandleResize();
+    </script>
+</body>
+
+</html>
